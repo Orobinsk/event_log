@@ -1,20 +1,27 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import {SelectButton} from "primereact/selectbutton";
 import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
 
-const Navbar = () => {
-    const options = ['Таблица', 'Карточка'];
-    const [value, setValue] = useState(options[0]);
-    return (
-        <div>
-            <SelectButton value={value} onChange={(e) => setValue(e.value)} options={options}/>
+interface NavbarType{
+    options:string[];
+    view:string;
+    setView: (view: string) => void
+}
 
-            <span className="p-input-icon-left">
+const Navbar:FC<NavbarType> = ({options,view,setView}) => {
+
+
+    return (
+        <div className='flex justify-content-between m-3'>
+            <SelectButton value={view} onChange={(e) => setView(e.value)} options={options}/>
+            <div>
+               <span className="p-input-icon-left mr-2">
                 <i className="pi pi-search"/>
-                 <InputText />
+                 <InputText/>
             </span>
-            <Button label="Поиск" />
+                <Button label="Поиск"/>
+            </div>
         </div>
     );
 };

@@ -5,6 +5,7 @@ import App from './App';
 import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import 'primeicons/primeicons.css';
+import '/node_modules/primeflex/primeflex.css'
 
 
 
